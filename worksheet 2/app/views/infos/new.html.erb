@@ -1,0 +1,11 @@
+<h1>Please enter information about an Info object<h1>
+<%= form_for @info, :action => :create do |f| %>
+  
+  <%= f.label :title%><br/>
+	<%= f.text_field :title %><br/>
+	
+	<%= f.label :price %><br/>
+	<%= f.text_field :price %><br/>
+	
+	<%= f.submit "Submit" %><br/>
+<% end %>
