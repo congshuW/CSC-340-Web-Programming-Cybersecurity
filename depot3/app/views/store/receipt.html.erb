@@ -1,0 +1,70 @@
+<h1>Your Receipt</h1>
+<h3>Thanks for shopping with us!</h3>
+
+<br>
+
+<div>
+  <%if flash[:notice]%>
+    <%= flash[:notice]%>
+  <%end%>
+</div>
+
+<br>
+
+<h3>Book Info</h3>
+
+<div>
+<table>
+  <thead>
+    <tr>
+      <th>My Books</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.items.each do |ci|%>
+    <tr>
+      <td><%=ci.title%></td>
+      <td><%=ci.quantity%></td>
+      <td><%=number_to_currency ci.price%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<h3>Shipping Info</h3>
+
+<div>
+  <p>Total Price: <%=number_to_currency @cart.total_price%></p>
+</div>
+
+<div>
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Shipping Address</th>
+      <th>Email</th>
+      <th>Payment Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%=@order.name%></td>
+      <td><%=@order.address%></td>
+      <td><%=@order.email%></td>
+      <td><%=@order.pay_type%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<div>
+  <div><%= button_to 'Finish', action:'clear_out' %></div>
+</div>

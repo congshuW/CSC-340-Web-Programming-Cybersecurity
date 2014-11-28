@@ -1,0 +1,10 @@
+
+  <% @mp.each do |user, mp| %>
+  <ol>
+    <p><%= @allUsers.find_by_id(user).name %></p>
+     <% mp.each do |mpc| %>
+    <li><%= mpc.content %></li>  
+    <%end%>
+  </ol>
+  <%end%>
+

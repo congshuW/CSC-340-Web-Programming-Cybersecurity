@@ -1,0 +1,27 @@
+<h1>My Cart</h1>
+
+<div>
+<table>
+  <thead>
+    <tr>
+      <th>My Books</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.items.each do |ci|%>
+    <tr>
+      <td><%=ci.title%></td>
+      <td><%=ci.quantity%></td>
+      <td><%=number_to_currency ci.price%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>
+
+<div>
+  <p>Total Price: <%=number_to_currency @cart.total_price%></p>
+  <div><%= button_to 'Empty My Cart', action:'empty_cart' %></div>
+</div>

@@ -1,0 +1,36 @@
+
+<h1>Available Products</h1>
+
+
+<div>
+  <% if flash[:notice]%>
+  <h3><%= flash[:notice]%></h3>
+  <%end%>
+</div>
+
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |p|%>
+      <tr>
+        <td><%= p.id %></td>
+        <td><%= p.title %></td>
+        <td><%= raw p.description %></td>
+        <td><%= number_to_currency(p.price) %></td>
+        <td><%= image_tag(p.image_url) %></td>
+        <td><%= button_to 'Add to Cart', action:'add_to_cart', id:p.id %></td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

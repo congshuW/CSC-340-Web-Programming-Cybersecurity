@@ -1,0 +1,19 @@
+<h1>Check Out</h1>
+
+<%= form_for @order, url:{controller:"store", action:"save_order"} do |f| %>
+
+<%= f.label :name%><br>
+<%= f.text_field :name%><br>
+
+<%= f.label :address%><br>
+<%= f.text_field :address%><br>
+
+<%= f.label :email%><br>
+<%= f.text_field :email%><br>
+
+<%= f.label :pay_type%><br>
+<%= f.select :pay_type, options_for_select([["Credit Cart", "CC"], ["Check", "C"], ["Money Order", "MO"]])%><br>
+
+<%= f.submit "Save Order"%><br>
+                        
+<%end%>

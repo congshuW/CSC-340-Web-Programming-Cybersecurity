@@ -1,0 +1,21 @@
+<h1>Sessions#new</h1>
+
+<% if flash[:message] %>
+<%= flash[:message] %>
+<% end %>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+
+ <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit class:"btn btn-primary btn-large"%>
+  </div>
+<% end %>
+<p>New User?</p><%= link_to "Sign up Now!", 'users/new' %>                
